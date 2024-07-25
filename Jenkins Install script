@@ -1,0 +1,12 @@
+
+sudo docker image pull jenkins/jenkins:lts
+cd /home
+sudo mkdir jenkins_home
+cd /
+cd /var
+sudo mkdir jenkins_home
+sudo chmod 777 jenkins_home
+cd
+sudo chmod 777 /var
+sudo chown -R 1000:1000  /home/jenkins_home
+sudo docker container run -d     -p 8080:8080     -v /home/jenkins_home:/var/jenkins_home     --name jenkins-local     jenkins/jenkins:lts
